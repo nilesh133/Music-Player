@@ -1,0 +1,1961 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    overflow: hidden;
+}
+
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+
+#name-queue-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#name{ 
+    background-image: linear-gradient(45deg, #e60073, orangered, #f50000);
+    width: 13rem;
+    text-align: center;
+    margin: 1rem;  
+}
+
+#name h2{
+    font-family: 'Otomanopee One', sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+    padding: 0.5rem;
+    letter-spacing: 1.5px;
+}
+
+#music-card-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 18rem;
+    height: 34rem;
+    border-radius: 2rem;
+    padding: 1rem 2.5rem 2.5rem 2.5rem;
+    text-align: center;
+    background-color: #0f0f0f;
+    z-index: 1;
+    border-radius: 4rem;
+    color: white;   
+    box-shadow: inset 9px 9px 14px #060606, inset -9px -9px 14px #181818;
+    overflow: hidden;
+}
+
+.fa-headphones-alt{
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background-color: #f50000;
+    border: 2px solid #f50000;
+}
+
+.fa-sliders-h{
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    border: 2px solid #f50000;
+    background-color: #f50000;
+    cursor: pointer;
+}
+
+#song-name{
+    font-size: 1.5rem;
+    letter-spacing: 0.2rem;
+    margin: 0.8rem 0 0.5rem 0;
+    animation: song-name-animation 3s linear infinite alternate;  
+}
+
+@keyframes song-name-animation {
+    0%{
+        color: #f50000;
+    }
+
+    25%{
+        color: cyan;
+    }
+
+    50%{
+        color: #e60073;
+    }
+
+    100%{
+        color: greenyellow;
+    }
+}
+
+#song-artist{
+    font-size: 0.9rem;
+    letter-spacing: 0.1rem;
+    font-weight: 500;
+    margin: 0 2rem 2rem 2rem;
+}
+
+#img-container{
+    width: 15em;
+    height: 15rem;
+    margin: auto;
+    border-radius: 50%;
+    border:0.5rem solid transparent;
+    border-image: linear-gradient(to right, #00ffff, greenyellow, #e60073);
+    border-image-slice: 1;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-image: 3px solid linear-gradient(to right, #00ffff, greenyellow, #e60073);
+}
+
+#progress-container{
+    width: 100%;
+    margin-top: 1rem;
+}
+
+#duration-container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#progress-line-box{
+    position: relative;
+    height: 0.3rem;
+    border-radius: 3rem;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+#progress-line{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color:#f50000;
+    border-top-left-radius: 3rem;
+    border-bottom-left-radius: 3rem;
+}
+
+#audio-control{
+    margin-top: 1rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#audio-control .fa-volume-up{
+    font-size: 1rem;
+    margin-right: 0.5rem;
+    border: 3px solid #f50000;
+    padding: 0.3rem;
+    border-radius: 50%;
+    background-color: #f50000;
+    color: white;
+    cursor: pointer;
+}
+
+#volume-slider{
+    appearance: none;
+    outline: none;
+    height: 0.2rem;
+    width: 50%;
+    opacity: 0;
+    transition: all ease-in 0.3s;
+    margin-left: -2.3rem;
+    cursor: pointer;
+}
+
+#volume-slider::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background: #f50000;
+    cursor: pointer;
+}
+ 
+#volume-slider.vol-show-hide{
+    opacity: 1;
+}
+
+.beats-effect-container{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+.beats{
+    height: 2rem;
+    width: 0.2rem;
+    background-color: #ff0000;
+    border-radius: 1rem;
+    margin-right: 0.2rem;
+    animation: anime 1s linear infinite;
+    transform-origin: bottom;
+}
+
+@keyframes anime {
+    0%{
+        transform: scale(0);
+    }
+
+    50%{
+        transform: scale(1);
+    }
+
+    100%{
+        transform: scale(0);
+    }
+}
+
+.beats:nth-child(2){
+    animation-delay: 0.1s;
+}
+.beats:nth-child(3){
+    animation-delay: 0.2s;
+}
+.beats:nth-child(4){
+    animation-delay: 0.3s;
+}
+.beats:nth-child(5){
+    animation-delay: 0.4s;
+}
+.beats:nth-child(6){
+    animation-delay: 0.5s;
+}
+.beats:nth-child(7){
+    animation-delay: 0.6s;
+}
+.beats:nth-child(8){
+    animation-delay: 0.7s;
+}
+.beats:nth-child(9){
+    animation-delay: 0.8s;
+}
+.beats:nth-child(10){
+    animation-delay: 0.9s;
+}
+  
+#music-buttons{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1.5rem;
+}
+
+#music-buttons .fas{
+    font-size: 1.8rem;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    background-color: #0f0f0f;
+    color: #f50000;
+    padding: 0.8rem;
+    cursor: pointer;
+    box-shadow: 6px 6px 7px #070707,
+             -6px -6px 7px #070707;
+    /*box-shadow:  5px 5px 6px #060606,
+             -5px -5px 6px #181818;*/
+}
+
+#music-buttons .far{
+    font-size: 2.5rem;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    background-color: #0f0f0f;
+    color: #f50000;
+    padding: 1rem;
+    cursor: pointer;
+    box-shadow: 6px 6px 7px #070707,
+             -6px -6px 7px #171717;
+}
+
+.circle{
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    opacity: 0.2;
+}
+
+#circle-1{
+    position: absolute;
+    top: 30%;
+    left: 8%;
+    background-color: orangered;
+}
+
+#circle-2{
+    position: absolute;
+    top: 5%;
+    left: 25%;
+    background-color: #7cfc00;
+}
+
+#circle-3{
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    background-color: #0000cd;
+}
+
+#circle-4{
+    position: absolute;
+    top: 18%;
+    left: 65%;
+    background-color: #ff0000;
+}
+
+#circle-5{
+    position: absolute;
+    top: 15%;
+    left: 85%;
+    background-color: #ff00ff;
+}
+
+#circle-6{
+    position: absolute;
+    top: 45%;
+    left: 90%; 
+    background-color: orangered;
+}
+
+#circle-7{
+    position: absolute;
+    top: 65%;
+    left: 80%;
+    background-color: #7cfc00;
+}
+
+#circle-8{
+    position: absolute;
+    top: 75%;
+    left: 60%; 
+    background-color: orangered;
+}
+
+#circle-9{
+    position: absolute;
+    top: 80%;
+    left: 40%; 
+    background-color: #ff0000;
+}
+
+#circle-10{
+    position: absolute;
+    top: 55%;
+    left: 20%; 
+    background-color: #ff00ff;
+}
+
+#circle-11{
+    position: absolute;
+    top: 75%;
+    left: 10%;
+    background-color: #7cfc00;
+}
+
+#circle-12{
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    background-color: #0000cd;
+}
+
+#circle-13{
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    background-color: #f5c71a; 
+}
+
+.circle{
+    animation: circle-glow 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes circle-glow {
+    from {
+      box-shadow: 0 0 15px #fff, 0 0 25px #fff, 0 0 35px #e60073, 0 0 45px #e60073, 0 0 55px #e60073, 0 0 65px #e60073, 0 0 75px #e60073;
+    }
+    
+    to {
+      box-shadow: 0 0 25px #fff, 0 0 35px #ff4da6, 0 0 45px #ff4da6, 0 0 55px #ff4da6, 0 0 65px #ff4da6, 0 0 75px #ff4da6, 0 0 85px #ff4da6;
+    }
+  }
+
+#line1{
+    position: absolute;
+    height: 0.2rem;
+    top: 5%;
+    left: 8%;
+    background-color: #e60073;
+    animation: line1-anim 8s linear infinite;
+}
+
+@keyframes line1-anim{
+    0%{
+        top: 10%;
+        width: 10%;
+        background-color: #e60073;
+    }
+
+    10%{
+        top: 15%;
+        width: 20%;
+        background-color: greenyellow;
+    }
+
+    20%{
+        top: 20%;
+        width: 30%;
+        background-color: cyan;
+    }
+
+    30%{
+        top: 25%;
+        width: 40%;
+        background-color: cyan;
+    }
+
+    40%{
+        top: 30%;
+        width: 50%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    50%{
+        top: 35%;
+        width: 60%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    60%{
+        top: 30%;
+        width: 50%;
+        background-color: purple;
+    }
+
+    70%{
+        top: 25%;
+        width: 40%;
+        background-color: purple;
+    }
+
+    80%{
+        top: 20%;
+        width: 30%;
+        background-color: cyan;
+    }
+
+    90%{
+        top: 15%;
+        width: 20%;
+        background-color: orangered;
+    }
+
+    100%{
+        top: 10%;
+        width: 10%;
+        background-color: #e60073;
+    }
+}
+
+
+#line2{
+    position: absolute;
+    height: 0.2rem;
+    top: 85%;
+    left: 18%;
+    background-color: #e60073;
+    animation: line2-anim 8s linear infinite;
+    animation-delay: 0.4s;
+}
+
+@keyframes line2-anim{
+    0%{
+        top: 80%;
+        width: 10%;
+        background-color: orangered;
+    }
+
+    10%{
+        top: 75%;
+        width: 20%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    20%{
+        top: 70%;
+        width: 30%;
+        background-color: greenyellow;
+    }
+
+    30%{
+        top: 65%;
+        width: 40%;
+        background-color: cyan;
+    }
+
+    40%{
+        top: 60%;
+        width: 50%;
+        background-color: cyan;
+    }
+
+    50%{
+        top: 55%;
+        width: 60%;
+        background-color: greenyellow;
+    }
+
+    60%{
+        top: 60%;
+        width: 50%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    70%{
+        top: 65%;
+        width: 40%;
+        background-color: cyan;
+    }
+
+    80%{
+        top: 70%;
+        width: 30%;
+        background-color: cyan;
+    }
+
+    90%{
+        top: 75%;
+        width: 20%;
+        background-color: orangered;
+    }
+
+    100%{
+        top: 80%;
+        width: 10%;
+        background-color: #e60073;
+    }
+}
+
+#line3{
+    position: absolute;
+    height: 0.2rem;
+    top: 15%;
+    right: 5%;
+    background-color: #e60073;
+    animation: line3-anim 8s linear infinite;
+    animation-delay: 0.9s;
+    
+}
+
+@keyframes line3-anim{
+    0%{
+        top: 20%;
+        width: 10%;
+        background-color: orangered;
+    }
+
+    10%{
+        top: 25%;
+        width: 20%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    20%{
+        top: 30%;
+        width: 30%;
+        background-color: greenyellow;
+    }
+
+    30%{
+        top: 35%;
+        width: 40%;
+        background-color: cyan;
+    }
+
+    40%{
+        top: 40%;
+        width: 50%;
+        background-color: cyan;
+    }
+
+    50%{
+        top: 45%;
+        width: 60%;
+        background-color: greenyellow;
+    }
+
+    60%{
+        top: 40%;
+        width: 50%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    70%{
+        top: 35%;
+        width: 40%;
+        background-color: cyan;
+    }
+
+    80%{
+        top: 30%;
+        width: 30%;
+        background-color: cyan;
+    }
+
+    90%{
+        top: 25%;
+        width: 20%;
+        background-color: orangered;
+    }
+
+    100%{
+        top: 20%;
+        width: 10%;
+        background-color: #e60073;
+    }
+}
+
+#line4{
+    position: absolute;
+    height: 0.2rem;
+    top: 75%;
+    right: 5%;
+    background-color: #e60073;
+    animation: line4-anim 8s linear infinite;
+    animation-delay: 1.2s;
+}
+
+@keyframes line4-anim{
+    0%{
+        top: 70%;
+        width: 10%;
+        background-color: orangered;
+    }
+
+    10%{
+        top: 65%;
+        width: 20%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    20%{
+        top: 60%;
+        width: 30%;
+        background-color: greenyellow;
+    }
+
+    30%{
+        top: 55%;
+        width: 40%;
+        background-color: cyan;
+    }
+
+    40%{
+        top: 50%;
+        width: 50%;
+        background-color: cyan;
+    }
+
+    50%{
+        top: 45%;
+        width: 60%;
+        background-color: greenyellow;
+    }
+
+    60%{
+        top: 50%;
+        width: 50%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    70%{
+        top: 55%;
+        width: 40%;
+        background-color: cyan;
+    }
+
+    80%{
+        top: 60%;
+        width: 30%;
+        background-color: cyan;
+    }
+
+    90%{
+        top: 65%;
+        width: 20%;
+        background-color: orangered;
+    }
+
+    100%{
+        top: 70%;
+        width: 10%;
+        background-color: #e60073;
+    }
+}
+
+#line5{
+    position: absolute;
+    width: 0.2rem;
+    top: 15%;
+    left: 5%;
+    background-color: #e60073;
+    animation: line5-anim 8s linear infinite;
+    animation-delay: 1.7s;
+}
+
+@keyframes line5-anim{
+    0%{
+        left: 10%;
+        height: 15%;
+        background-color: orangered;
+    }
+
+    10%{
+        left: 15%;
+        height: 25%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    20%{
+        left: 20%;
+        height: 35%;
+        background-color: greenyellow;
+    }
+
+    30%{
+        left: 25%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    40%{
+        left: 30%;
+        height: 55%;
+        background-color: cyan;
+    }
+
+    50%{
+        left: 35%;
+        height: 65%;
+        background-color: greenyellow;
+    }
+
+    60%{
+        left: 30%;
+        height: 55%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    70%{
+        left: 25%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    80%{
+        left: 20%;
+        height: 35%;
+        background-color: cyan;
+    }
+
+    90%{
+        left: 15%;
+        height: 25%;
+        background-color: orangered;
+    }
+
+    100%{
+        left: 10%;
+        height: 15%;
+        background-color: #e60073;
+    }
+}
+
+#line6{
+    position: absolute;
+    width: 0.2rem;
+    top: 15%;
+    right: 5%;
+    background-color: #e60073;
+    animation: line6-anim 8s linear infinite;
+    animation-delay: 2s;
+}
+
+@keyframes line6-anim{
+    0%{
+        right: 10%;
+        height: 15%;
+        background-color: orangered;
+    }
+
+    10%{
+        right: 15%;
+        height: 25%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    20%{
+        right: 20%;
+        height: 35%;
+        background-color: greenyellow;
+    }
+
+    30%{
+        right: 25%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    40%{
+        right: 30%;
+        height: 55%;
+        background-color: cyan;
+    }
+
+    50%{
+        right: 35%;
+        height: 65%;
+        background-color: greenyellow;
+    }
+
+    60%{
+        right: 30%;
+        height: 55%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    70%{
+        right: 25%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    80%{
+        right: 20%;
+        height: 35%;
+        background-color: cyan;
+    }
+
+    90%{
+        right: 15%;
+        height: 25%;
+        background-color: orangered;
+    }
+
+    100%{
+        right: 10%;
+        height: 15%;
+        background-color: #e60073;
+    }
+}
+
+#line7{
+    position: absolute;
+    width: 0.2rem;
+    bottom: 10%;
+    left: 10%;
+    background-color: #e60073;
+    animation: line7-anim 8s linear infinite;
+    animation-delay: 2.7s;
+}
+
+@keyframes line7-anim{
+    0%{
+        left: 15%;
+        height: 15%;
+        background-color: orangered;
+    }
+
+    10%{
+        left: 20%;
+        height: 25%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    20%{
+        left: 25%;
+        height: 35%;
+        background-color: greenyellow;
+    }
+
+    30%{
+        left: 30%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    40%{
+        left: 35%;
+        height: 55%;
+        background-color: cyan;
+    }
+
+    50%{
+        left: 40%;
+        height: 65%;
+        background-color: greenyellow;
+    }
+
+    60%{
+        left: 35%;
+        height: 55%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    70%{
+        left: 30%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    80%{
+        left: 25%;
+        height: 35%;
+        background-color: cyan;
+    }
+
+    90%{
+        left: 20%;
+        height: 25%;
+        background-color: orangered;
+    }
+
+    100%{
+        left: 15%;
+        height: 15%;
+        background-color: #e60073;
+    }
+}
+
+#line8{
+    position: absolute;
+    width: 0.2rem;
+    bottom: 15%;
+    right: 10%;
+    background-color: #e60073;
+    animation: line8-anim 8s linear infinite;
+    animation-delay: 1.5s;
+}
+
+@keyframes line8-anim{
+    0%{
+        right: 15%;
+        height: 15%;
+        background-color: orangered;
+    }
+
+    10%{
+        right: 20%;
+        height: 25%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    20%{
+        right: 25%;
+        height: 35%;
+        background-color: greenyellow;
+    }
+
+    30%{
+        right: 30%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    40%{
+        right: 35%;
+        height: 55%;
+        background-color: cyan;
+    }
+
+    50%{
+        right: 40%;
+        height: 65%;
+        background-color: greenyellow;
+    }
+
+    60%{
+        right: 35%;
+        height: 55%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    70%{
+        right: 30%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    80%{
+        right: 25%;
+        height: 35%;
+        background-color: cyan;
+    }
+
+    90%{
+        right: 20%;
+        height: 25%;
+        background-color: orangered;
+    }
+
+    100%{
+        right: 15%;
+        height: 15%;
+        background-color: #e60073;
+    }
+}
+
+#line9{
+    position: absolute;
+    height: 0.2rem;
+    top: 15%;
+    left: 18%;
+    background-color: #e60073;
+    animation: line9-anim 8s linear infinite;
+    animation-delay: 3.3s;
+}
+
+@keyframes line9-anim{
+    0%{
+        top: 20%;
+        width: 10%;
+        background-color: #e60073;
+    }
+
+    10%{
+        top: 25%;
+        width: 20%;
+        background-color: greenyellow;
+    }
+
+    20%{
+        top: 30%;
+        width: 30%;
+        background-color: cyan;
+    }
+
+    30%{
+        top: 35%;
+        width: 40%;
+        background-color: cyan;
+    }
+
+    40%{
+        top: 40%;
+        width: 50%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    50%{
+        top: 45%;
+        width: 60%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    60%{
+        top: 40%;
+        width: 50%;
+        background-color: purple;
+    }
+
+    70%{
+        top: 35%;
+        width: 40%;
+        background-color: purple;
+    }
+
+    80%{
+        top: 30%;
+        width: 30%;
+        background-color: cyan;
+    }
+
+    90%{
+        top: 25%;
+        width: 20%;
+        background-color: orangered;
+    }
+
+    100%{
+        top: 20%;
+        width: 10%;
+        background-color: #e60073;
+    }
+}
+
+#line10{
+    position: absolute;
+    height: 0.2rem;
+    top: 95%;
+    left: 12%;
+    background-color: #e60073;
+    animation: line10-anim 8s linear infinite;
+    animation-delay: 3.9s;
+}
+
+@keyframes line10-anim{
+    0%{
+        top: 90%;
+        width: 10%;
+        background-color: orangered;
+    }
+
+    10%{
+        top: 85%;
+        width: 20%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    20%{
+        top: 80%;
+        width: 30%;
+        background-color: greenyellow;
+    }
+
+    30%{
+        top: 75%;
+        width: 40%;
+        background-color: cyan;
+    }
+
+    40%{
+        top: 70%;
+        width: 50%;
+        background-color: cyan;
+    }
+
+    50%{
+        top: 65%;
+        width: 60%;
+        background-color: greenyellow;
+    }
+
+    60%{
+        top: 70%;
+        width: 50%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    70%{
+        top: 75%;
+        width: 40%;
+        background-color: cyan;
+    }
+
+    80%{
+        top: 80%;
+        width: 30%;
+        background-color: cyan;
+    }
+
+    90%{
+        top: 85%;
+        width: 20%;
+        background-color: orangered;
+    }
+
+    100%{
+        top: 90%;
+        width: 10%;
+        background-color: #e60073;
+    }
+}
+
+#line11{
+    position: absolute;
+    height: 0.2rem;
+    top: 20%;
+    right: 10%;
+    background-color: #e60073;
+    animation: line11-anim 8s linear infinite;
+    animation-delay: 4.2s;
+    
+}
+
+@keyframes line11-anim{
+    0%{
+        top: 25%;
+        width: 10%;
+        background-color: orangered;
+    }
+
+    10%{
+        top: 30%;
+        width: 20%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    20%{
+        top: 35%;
+        width: 30%;
+        background-color: greenyellow;
+    }
+
+    30%{
+        top: 40%;
+        width: 40%;
+        background-color: cyan;
+    }
+
+    40%{
+        top: 45%;
+        width: 50%;
+        background-color: cyan;
+    }
+
+    50%{
+        top: 50%;
+        width: 60%;
+        background-color: greenyellow;
+    }
+
+    60%{
+        top: 45%;
+        width: 50%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    70%{
+        top: 40%;
+        width: 40%;
+        background-color: cyan;
+    }
+
+    80%{
+        top: 35%;
+        width: 30%;
+        background-color: cyan;
+    }
+
+    90%{
+        top: 30%;
+        width: 20%;
+        background-color: orangered;
+    }
+
+    100%{
+        top: 25%;
+        width: 10%;
+        background-color: #e60073;
+    }
+}
+
+#line12{
+    position: absolute;
+    height: 0.2rem;
+    top: 80%;
+    right: 5%;
+    background-color: #e60073;
+    animation: line12-anim 8s linear infinite;
+    animation-delay: 4.7s;
+}
+
+@keyframes line12-anim{
+    0%{
+        top: 75%;
+        width: 10%;
+        background-color: orangered;
+    }
+
+    10%{
+        top: 70%;
+        width: 20%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    20%{
+        top: 65%;
+        width: 30%;
+        background-color: greenyellow;
+    }
+
+    30%{
+        top: 60%;
+        width: 40%;
+        background-color: cyan;
+    }
+
+    40%{
+        top: 55%;
+        width: 50%;
+        background-color: cyan;
+    }
+
+    50%{
+        top: 50%;
+        width: 60%;
+        background-color: greenyellow;
+    }
+
+    60%{
+        top: 55%;
+        width: 50%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    70%{
+        top: 60%;
+        width: 40%;
+        background-color: cyan;
+    }
+
+    80%{
+        top: 65%;
+        width: 30%;
+        background-color: cyan;
+    }
+
+    90%{
+        top: 70%;
+        width: 20%;
+        background-color: orangered;
+    }
+
+    100%{
+        top: 75%;
+        width: 10%;
+        background-color: #e60073;
+    }
+}
+
+#line13{
+    position: absolute;
+    width: 0.2rem;
+    top: 25%;
+    left: 15%;
+    background-color: #e60073;
+    animation: line13-anim 8s linear infinite;
+    animation-delay: 4.8s;
+}
+
+@keyframes line13-anim{
+    0%{
+        left: 20%;
+        height: 15%;
+        background-color: orangered;
+    }
+
+    10%{
+        left: 25%;
+        height: 25%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    20%{
+        left: 30%;
+        height: 35%;
+        background-color: greenyellow;
+    }
+
+    30%{
+        left: 35%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    40%{
+        left: 40%;
+        height: 55%;
+        background-color: cyan;
+    }
+
+    50%{
+        left: 45%;
+        height: 65%;
+        background-color: greenyellow;
+    }
+
+    60%{
+        left: 40%;
+        height: 55%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    70%{
+        left: 35%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    80%{
+        left: 30%;
+        height: 35%;
+        background-color: cyan;
+    }
+
+    90%{
+        left: 25%;
+        height: 25%;
+        background-color: orangered;
+    }
+
+    100%{
+        left: 20%;
+        height: 15%;
+        background-color: #e60073;
+    }
+}
+
+#line14{
+    position: absolute;
+    width: 0.2rem;
+    top: 5%;
+    right: 20%;
+    background-color: #e60073;
+    animation: line14-anim 8s linear infinite;
+    animation-delay: 5.5s;
+}
+
+@keyframes line14-anim{
+    0%{
+        right: 25%;
+        height: 15%;
+        background-color: orangered;
+    }
+
+    10%{
+        right: 30%;
+        height: 25%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    20%{
+        right: 35%;
+        height: 35%;
+        background-color: greenyellow;
+    }
+
+    30%{
+        right: 40%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    40%{
+        right: 45%;
+        height: 55%;
+        background-color: cyan;
+    }
+
+    50%{
+        right: 50%;
+        height: 65%;
+        background-color: greenyellow;
+    }
+
+    60%{
+        right: 45%;
+        height: 55%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    70%{
+        right: 40%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    80%{
+        right: 35%;
+        height: 35%;
+        background-color: cyan;
+    }
+
+    90%{
+        right: 30%;
+        height: 25%;
+        background-color: orangered;
+    }
+
+    100%{
+        right: 25%;
+        height: 15%;
+        background-color: #e60073;
+    }
+}
+
+#line15{
+    position: absolute;
+    width: 0.2rem;
+    bottom: 5%;
+    left: 20%;
+    background-color: #e60073;
+    animation: line15-anim 8s linear infinite;
+    animation-delay: 5.8s;
+}
+
+@keyframes line15-anim{
+    0%{
+        left: 25%;
+        height: 15%;
+        background-color: orangered;
+    }
+
+    10%{
+        left: 30%;
+        height: 25%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    20%{
+        left: 35%;
+        height: 35%;
+        background-color: greenyellow;
+    }
+
+    30%{
+        left: 40%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    40%{
+        left: 45%;
+        height: 55%;
+        background-color: cyan;
+    }
+
+    50%{
+        left: 50%;
+        height: 65%;
+        background-color: greenyellow;
+    }
+
+    60%{
+        left: 45%;
+        height: 55%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    70%{
+        left: 40%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    80%{
+        left: 35%;
+        height: 35%;
+        background-color: cyan;
+    }
+
+    90%{
+        left: 30%;
+        height: 25%;
+        background-color: orangered;
+    }
+
+    100%{
+        left: 25%;
+        height: 15%;
+        background-color: #e60073;
+    }
+}
+
+#line16{
+    position: absolute;
+    width: 0.2rem;
+    bottom: 10%;
+    right: 5%;
+    background-color: #e60073;
+    animation: line16-anim 8s linear infinite;
+    animation-delay: 6.3s;
+}
+
+@keyframes line16-anim{
+    0%{
+        right: 10%;
+        height: 15%;
+        background-color: orangered;
+    }
+
+    10%{
+        right: 15%;
+        height: 25%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    20%{
+        right: 20%;
+        height: 35%;
+        background-color: greenyellow;
+    }
+
+    30%{
+        right: 25%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    40%{
+        right: 30%;
+        height: 55%;
+        background-color: cyan;
+    }
+
+    50%{
+        right: 35%;
+        height: 65%;
+        background-color: greenyellow;
+    }
+
+    60%{
+        right: 30%;
+        height: 55%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    70%{
+        right: 25%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    80%{
+        right: 20%;
+        height: 35%;
+        background-color: cyan;
+    }
+
+    90%{
+        right: 15%;
+        height: 25%;
+        background-color: orangered;
+    }
+
+    100%{
+        right: 10%;
+        height: 15%;
+        background-color: #e60073;
+    }
+}
+
+#line17{
+    position: absolute;
+    width: 0.2rem;
+    top: 15%;
+    left: 15%;
+    background-color: #e60073;
+    animation: line5-anim 8s linear infinite;
+    animation-delay: 6.7s;
+}
+
+@keyframes line17-anim{
+    0%{
+        left: 10%;
+        height: 15%;
+        background-color: orangered;
+    }
+
+    10%{
+        left: 15%;
+        height: 25%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    20%{
+        left: 20%;
+        height: 35%;
+        background-color: greenyellow;
+    }
+
+    30%{
+        left: 25%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    40%{
+        left: 30%;
+        height: 55%;
+        background-color: cyan;
+    }
+
+    50%{
+        left: 35%;
+        height: 65%;
+        background-color: greenyellow;
+    }
+
+    60%{
+        left: 30%;
+        height: 55%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    70%{
+        left: 25%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    80%{
+        left: 20%;
+        height: 35%;
+        background-color: cyan;
+    }
+
+    90%{
+        left: 15%;
+        height: 25%;
+        background-color: orangered;
+    }
+
+    100%{
+        left: 10%;
+        height: 15%;
+        background-color: #e60073;
+    }
+}
+
+#line18{
+    position: absolute;
+    width: 0.2rem;
+    top: 20%;
+    right: 15%;
+    background-color: #e60073;
+    animation: line18-anim 8s linear infinite;
+    animation-delay: 7s;
+}
+
+@keyframes line18-anim{
+    0%{
+        right: 20%;
+        height: 15%;
+        background-color: orangered;
+    }
+
+    10%{
+        right: 25%;
+        height: 25%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    20%{
+        right: 30%;
+        height: 35%;
+        background-color: greenyellow;
+    }
+
+    30%{
+        right: 35%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    40%{
+        right: 40%;
+        height: 55%;
+        background-color: cyan;
+    }
+
+    50%{
+        right: 45%;
+        height: 65%;
+        background-color: greenyellow;
+    }
+
+    60%{
+        right: 40%;
+        height: 55%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    70%{
+        right: 35%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    80%{
+        right: 30%;
+        height: 35%;
+        background-color: cyan;
+    }
+
+    90%{
+        right: 25%;
+        height: 25%;
+        background-color: orangered;
+    }
+
+    100%{
+        right: 20%;
+        height: 15%;
+        background-color: #e60073;
+    }
+}
+
+#line19{
+    position: absolute;
+    width: 0.2rem;
+    bottom: 15%;
+    left: 15%;
+    background-color: #e60073;
+    animation: line19-anim 8s linear infinite;
+    animation-delay: 7.5s;
+}
+
+@keyframes line19-anim{
+    0%{
+        left: 20%;
+        height: 15%;
+        background-color: orangered;
+    }
+
+    10%{
+        left: 25%;
+        height: 25%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    20%{
+        left: 30%;
+        height: 35%;
+        background-color: greenyellow;
+    }
+
+    30%{
+        left: 35%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    40%{
+        left: 40%;
+        height: 55%;
+        background-color: cyan;
+    }
+
+    50%{
+        left: 45%;
+        height: 65%;
+        background-color: greenyellow;
+    }
+
+    60%{
+        left: 40%;
+        height: 55%;
+        background-color: rgb(241, 12, 12);
+    }
+
+    70%{
+        left: 35%;
+        height: 45%;
+        background-color: cyan;
+    }
+
+    80%{
+        left: 30%;
+        height: 35%;
+        background-color: cyan;
+    }
+
+    90%{
+        left: 25%;
+        height: 25%;
+        background-color: orangered;
+    }
+
+    100%{
+        left: 20%;
+        height: 15%;
+        background-color: #e60073;
+    }
+}
+
+#audio-list{
+    position: absolute;
+    left: 0;
+    bottom: -75%;
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    border-radius: inherit;
+    background-color: #0f0f0f;
+    opacity: 0.97;
+    transition: all 0.5s ease-in-out;
+}
+
+#audio-list ul{
+    padding: 0;
+    list-style-type: none;
+    border-radius: inherit;
+    overflow-y: auto;
+    max-height: 25rem;
+    text-align: center;
+    cursor: pointer;  
+}
+
+#audio-list ul::-webkit-scrollbar{
+    width: 0;
+}
+
+#audio-list ul li{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    border-bottom: 2px solid #f50000;
+    margin: 0;
+}
+
+#audio-list.show{
+    bottom: 0;
+}
+
+#audio-list.hide{
+    bottom: -75%;
+}
+
+#audio-list ul li h4{
+    margin: 1rem 0;
+}
+
+#cross-btn{
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#audio-list ul li h5{
+    margin: 0 0 1rem 0;
+}
+
+ul li.playing{
+    animation: song-name-animation1 1s linear infinite alternate;
+}
+
+@keyframes song-name-animation1 {
+    0%{
+        color: cyan;
+    }
+
+    50%{
+        color: #e60073;
+    }
+
+    100%{
+        color: greenyellow;
+    }
+}
+
+
+
+
+
+
+
