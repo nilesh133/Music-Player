@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <script src="https://kit.fontawesome.com/906e7028b4.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/fav-icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/fav-icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/fav-icon/favicon-16x16.png">
+    <link rel="manifest" href="images/fav-icon/site.webmanifest">
+    <link rel="mask-icon" href="images/fav-icon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>Music Player</title>
+</head>
+
+<body>
+    <div class="circle" id="circle-1"></div>
+    <div class="circle" id="circle-2"></div>
+    <div class="circle" id="circle-3"></div>
+    <div class="circle" id="circle-4"></div>
+    <div class="circle" id="circle-5"></div>
+    <div class="circle" id="circle-6"></div>
+    <div class="circle" id="circle-7"></div>
+    <div class="circle" id="circle-8"></div>
+    <div class="circle" id="circle-9"></div>
+    <div class="circle" id="circle-10"></div>
+    <div class="circle" id="circle-11"></div>
+    <div class="circle" id="circle-12"></div>
+    <div class="circle" id="circle-13"></div>
+    <div id="line1"></div>
+    <div id="line2"></div>
+    <div id="line3"></div>
+    <div id="line4"></div>
+    <div id="line5"></div>
+    <div id="line6"></div>
+    <div id="line7"></div>
+    <div id="line8"></div>
+    <div id="line9"></div>
+    <div id="line10"></div>
+    <div id="line11"></div>
+    <div id="line12"></div>
+    <div id="line13"></div>
+    <div id="line14"></div>
+    <div id="line15"></div>
+    <div id="line16"></div>
+    <div id="line17"></div>
+    <div id="line18"></div>
+    <div id="line19"></div>
+    <div id="name">
+        <h2>MuSiC PlAyEr</h2>
+    </div>
+    <div id="music-card-container">
+        <div id="name-queue-container">
+            <i class="fas fa-headphones-alt" id=""></i>
+            <div>
+                <h2 id="song-name">Downtown</h2>
+                <h3 id="song-artist">Guru Randhawa</h3>
+            </div>
+            <i class="fas fa-sliders-h" id="audio-list-show-btn"></i>
+        </div>
+
+        <div id=img-container>
+            <img src="images/downtown.jpg" alt="">
+        </div>
+        <audio src="music/Downtown.mp3"></audio>
+        <div id="progress-container">
+            <div id=duration-container>
+                <div id=start-time>0:00</div>
+                <div id="end-time">3:36</div>
+            </div>
+            <div id="progress-line-box">
+                <div id="progress-line"></div>
+            </div>
+        </div>
+        <div id="audio-control">
+            <i class="fas fa-volume-up" id="volume-btn" title="Volume"></i>
+            <input type="range" min="0" max="100" value="90" id="volume-slider">
+            <div class="beats-effect-container">
+                <div class="beats"></div>
+                <div class="beats"></div>
+                <div class="beats"></div>
+                <div class="beats"></div>
+                <div class="beats"></div>
+                <div class="beats"></div>
+                <div class="beats"></div>
+                <div class="beats"></div>
+                <div class="beats"></div>
+                <div class="beats"></div>
+            </div>
+        </div>
+        <div id="music-buttons">
+            <i class="fas fa-backward" id="prev-btn" title="Previous"></i>
+            <i class="fas fa-play-circle" id="play-btn" title="Play"></i>
+            <i class="fas fa-forward" id="next-btn" title=Next></i>
+        </div>
+        <div id="audio-list">
+            <ul id="ul">
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
